@@ -51,7 +51,7 @@ First, download the executable file of the program
 ➜ ./vohulang
 Please provide the program file as a command-line argument
 Like 'cargo run your_program.vo' or
-For compiled veriosn 'vohulang your_program.vo'
+For compiled versions 'vohulang your_program.vo'
 ```
 
 run this sample test [square_area.vo](samples/square_area.vo):
@@ -189,7 +189,7 @@ Specify variables or numbers to perform the operation : [+! result] > (**number1
 
 At first you need install Rust and Cargo
 you can do it by this tutorial <a href="https://www.rust-lang.org/tools/install">Install Rust</a>
-then you can build and complie this project (in release mode ) :
+then you can build and compile this project (in release mode ) :
 
 ```bash
 cargo build --release
