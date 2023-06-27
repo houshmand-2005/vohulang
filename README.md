@@ -45,7 +45,7 @@ Vohulang is not a complete programming language, I made this project to learn th
 
 # How to run?
 
-First, download the executable file of the program
+First, download the executable file of the program form here : [vohulang](https://github.com/houshmand-2005/vohulang/releases/download/v0.1.0/vohulang) 
 
 ```bash
 ➜ ./vohulang
