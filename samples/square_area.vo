@@ -1,0 +1,11 @@
+[START]
+[S! message] > ("-----Square Area-----")
+[PS! message]
+[INP! length] > (S! Enter the length of one side : )
+[*! Area] > (length * length)
+[S! second_message] > ("The area is equal to : ")
+[PS! second_message]
+[PS! Area]
+[S! end] > ("------- done --------")
+[PS! end]
+[END]

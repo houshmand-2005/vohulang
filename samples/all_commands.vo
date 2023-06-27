@@ -1,0 +1,20 @@
+[START]
+[S! name] > ("Houshmand")
+[PS! name]
+[N! number1] > (5)
+[N! number2] > (9)
+[+! result] > (number1 + number2)
+[PS! result]
+[+! result] > (number1 + 150 + 1)
+[PS! result]
+[S! split] > ("--------------")
+[-! result1] > (number2 - number1)
+[PS! result1]
+[*! mul] > (number2 * number1)
+[PS! mul]
+[/! newnumber] > (20 / 2)
+[PS! newnumber]
+[INP! name] > (S! enter you name : )
+[FOR! 2] > (PS! split )
+[PS! name]
+[END]
