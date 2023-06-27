@@ -89,7 +89,7 @@ sample programs:<br>
 [S! name] > ("Houshmand")
 ```
 
-**You can Integer string values like this** <br>
+**You can insert string values like this** <br>
 N! means the content is Integer
 
 `[N! ...] > ("...")`
