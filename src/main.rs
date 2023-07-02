@@ -5,45 +5,53 @@ use std::io;
 use std::io::prelude::*;
 
 fn main() {
-    let input_string: String = open_file();
     let mut number_list: Vec<(String, i32)> = Vec::new();
     let mut string_list: Vec<(String, String)> = Vec::new();
+    let input_string: String = open_file(&mut number_list, &mut string_list);
+    l_parser(input_string, &mut number_list, &mut string_list);
+}
+
+fn l_parser(
+    input_string: String,
+    number_list: &mut Vec<(String, i32)>,
+    string_list: &mut Vec<(String, String)>,
+) {
     for line in input_string.lines() {
         let n_values: Regex = Regex::new(r"N!(.*?)\] > \((.*?)\)").unwrap();
         if let Some(_captures) = n_values.captures(line) {
-            n_val(line, n_values, &mut number_list);
+            n_val(line, n_values, number_list);
         }
         let s_values: Regex = Regex::new(r"S!(.*?)\] > \((.*?)\)").unwrap();
         if let Some(_captures) = s_values.captures(line) {
-            s_val(line, s_values, &mut string_list);
+            s_val(line, s_values, string_list);
         }
         let s_inp_values: Regex = Regex::new(r"INP!(.*?)\] > \(S!(.*?)\)").unwrap();
         if let Some(_captures) = s_inp_values.captures(line) {
-            s_inp(line, s_inp_values, &mut string_list);
+            s_inp(line, s_inp_values, string_list);
         }
         let ps_values: Regex = Regex::new(r"\[PS!(.*?)\]").unwrap();
         if let Some(_captures) = ps_values.captures(line) {
-            s_ps(line, ps_values, &mut string_list, &mut number_list);
+            s_ps(line, ps_values, string_list, number_list);
         }
         let plus_statement: Regex = Regex::new(r"\+\!(.*?)\] > \((.*?)\)").unwrap();
         if let Some(_captures) = plus_statement.captures(line) {
-            plus_fn(line, plus_statement, &mut string_list, &mut number_list);
+            plus_fn(line, plus_statement, string_list, number_list);
         }
         let minus_statement: Regex = Regex::new(r"\-\!(.*?)\] > \((.*?)\)").unwrap();
         if let Some(_captures) = minus_statement.captures(line) {
-            minus_fn(line, minus_statement, &mut string_list, &mut number_list);
+            minus_fn(line, minus_statement, string_list, number_list);
         }
         let multiply_statement: Regex = Regex::new(r"\*\!(.*?)\] > \((.*?)\)").unwrap();
         if let Some(_captures) = multiply_statement.captures(line) {
-            multiply_fn(line, multiply_statement, &mut string_list, &mut number_list);
+            multiply_fn(line, multiply_statement, string_list, number_list);
         }
         let divide_statement: Regex = Regex::new(r"\/\!(.*?)\] > \((.*?)\)").unwrap();
         if let Some(_captures) = divide_statement.captures(line) {
-            divide_fn(line, divide_statement, &mut string_list, &mut number_list);
+            divide_fn(line, divide_statement, string_list, number_list);
         }
         let for_statement: Regex = Regex::new(r"FOR\!(.*?)\] > \(PS!(.*?)\)").unwrap();
         if let Some(_captures) = for_statement.captures(line) {
-            for_statement_fn(line, for_statement, &mut string_list, &mut number_list);
+            for_statement_fn(line, for_statement, string_list, number_list);
         }
         let end_statement: Regex = Regex::new(r"\[END\]").unwrap();
         if let Some(_captures) = end_statement.captures(line) {
@@ -51,7 +59,6 @@ fn main() {
         }
     }
 }
-
 fn n_val(line: &str, n_values: regex::Regex, number_list: &mut Vec<(String, i32)>) {
     for item in n_values.captures_iter(line) {
         let name: String = item.get(1).unwrap().as_str().trim().to_string();
@@ -315,13 +322,27 @@ fn get_variables(
     }
     None
 }
-fn open_file() -> String {
+fn open_file(
+    number_list: &mut Vec<(String, i32)>,
+    string_list: &mut Vec<(String, String)>,
+) -> String {
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
-        println!("Please provide the program file as a command-line argument");
-        println!("Like 'cargo run your_program.vo' or");
-        println!("For compiled veriosn 'vohulang your_program.vo'");
-        std::process::exit(1);
+        println!("Vohulang (V0.1.1)");
+        loop {
+            print!(">>> ");
+            io::stdout().flush().expect("Failed to flush stdout");
+
+            let mut value = String::new();
+
+            match io::stdin().read_line(&mut value) {
+                Ok(_) => l_parser(value, number_list, string_list),
+                Err(error) => {
+                    println!("Error: {}", error);
+                    std::process::exit(1)
+                }
+            }
+        }
     }
     let program_file: &String = &args[1];
     let mut file: File = File::open(program_file).expect("File not found");

@@ -30,7 +30,7 @@ This is a programming language based on the Rust language, in fact, it reads the
 
 ## Why using Vohulang?
 
-Vohulang is not a complete programming language, I made this project to learn the Rust language
+Vohulang is an interpreter language, but not a complete programming language, I made this project to learn the Rust language
 
 ### Features
 
@@ -45,16 +45,18 @@ Vohulang is not a complete programming language, I made this project to learn th
 
 # How to run?
 
-First, download the executable file of the program form here : [vohulang](https://github.com/houshmand-2005/vohulang/releases/download/v0.1.0/vohulang) 
-
+First, download the executable file of the program from here : [vohulang for Linux](https://github.com/houshmand-2005/vohulang/releases/download/v0.1.1/vohulang)
+| [vohulang for Windows](https://github.com/houshmand-2005/vohulang/releases/download/v0.1.1/vohulang.exe)
 ```bash
 ➜ ./vohulang
-Please provide the program file as a command-line argument
-Like 'cargo run your_program.vo' or
-For compiled versions 'vohulang your_program.vo'
+Vohulang (V0.1.1)
+>>> [S! hello] > ("Hello World")
+>>> [PS! hello]
+Hello World
+>>>
 ```
 
-run this sample test [square_area.vo](samples/square_area.vo):
+Or run from files, like this sample test [square_area.vo](samples/square_area.vo):
 
 ```bash
 ➜ ./vohulang samples/square_area.vo
@@ -98,7 +100,7 @@ N! means the content is Integer
 [N! number1] > (5)
 ```
 
-**You can insert in values like this** <br>
+**You can insert number in values like this** <br>
 S! means the content is string
 
 `[PS! ...]`
@@ -195,6 +197,9 @@ then you can build and compile this project (in release mode ) :
 cargo build --release
 ```
 
+## Changes
+
+- **version 0.1.1 :** interpreter mode add to the program
 <hr>
 <div align="center">
 <img src="pictures/vohulang.gif" width="710" height="380"/>
