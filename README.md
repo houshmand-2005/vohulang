@@ -40,7 +40,7 @@ Vohulang is an interpreter language, but not a complete programming language, I 
 - Support **Mathematical operations** such as addition, subtraction, multiplication and division
 - Support **Print values**
 - Support **Input data from users**
-- Support **And more soon**
+- **And more soon**
   <br>
 
 # How to run?
