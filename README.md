@@ -47,6 +47,7 @@ Vohulang is an interpreter language, but not a complete programming language, I 
 
 First, download the executable file of the program from here : [vohulang for Linux](https://github.com/houshmand-2005/vohulang/releases/download/v0.1.1/vohulang)
 | [vohulang for Windows](https://github.com/houshmand-2005/vohulang/releases/download/v0.1.1/vohulang.exe)
+
 ```bash
 ➜ ./vohulang
 Vohulang (V0.1.1)
@@ -94,7 +95,7 @@ sample programs:<br>
 **You can insert string values like this** <br>
 N! means the content is Integer
 
-`[N! ...] > ("...")`
+`[N! ...] > (...)`
 
 ```bash
 [N! number1] > (5)
