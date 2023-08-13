@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="httpps://github.com/houshmand-2005/vohulang" target="_blank">
+  <a href="https://github.com/houshmand-2005/vohulang" target="_blank">
     <img src="pictures/vohulang_poster.png" alt="vohulang_poster" width="600" height="auto">
   </a>
 </p>
